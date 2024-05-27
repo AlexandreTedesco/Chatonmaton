@@ -14,6 +14,10 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", type: "module" %>
+    <%= link_to 'Mon Profil', profile_path %>
+    <% if user_signed_in? %>
+  <%= link_to 'Déconnexion', destroy_user_session_path, method: :delete %>
+<% end %>
   </head>
 
   <body>
