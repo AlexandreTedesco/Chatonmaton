@@ -24,8 +24,10 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_27_150000) do
   end
 
   create_table "carts", force: :cascade do |t|
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
   create_table "items", force: :cascade do |t|

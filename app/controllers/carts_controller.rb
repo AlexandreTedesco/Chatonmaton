@@ -1,7 +1,6 @@
 class CartsController < ApplicationController
     def show()
-        @cart = Cart.find_by(user: current_user)
-        @items = @cart.items
+        @cart = create_or_retrieve_cart_current_user
     end
     
     # Pas sur je crois que ça sera lors de la connexion de l'utilisateur que le panier se créera

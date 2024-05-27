@@ -1,0 +1,35 @@
+.inline {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+  }
+
+  .space_between {
+    justify-content: space-between;
+    width: 100%;
+  }
+
+header{
+    background-color: white;
+    position: sticky;
+    top: 0;
+    width: 100%;
+    padding-left: 2rem;
+    padding-right: 2rem;
+ }
+
+ .icone{
+  background-color: var(--primary_color);
+  text-decoration: none;
+  padding: 0.5rem 0.5rem 0.5rem;
+  border: none;
+  border-radius: 999px;
+  color: var(--complementary_color);
+  font-size: 1.5rem;
+  font-style: normal;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }

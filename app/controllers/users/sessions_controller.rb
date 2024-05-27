@@ -2,6 +2,7 @@
 
 class Users::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
+  after_action :create_or_retrieve_cart_current_user, only: [:create]
 
   # GET /resource/sign_in
    #def new
