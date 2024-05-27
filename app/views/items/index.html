@@ -1,0 +1,11 @@
+  <h1>Liste des Articles</h1>
+      <% @items.each do |item| %>
+        <%= item.title %>
+        <%= item.description %>
+        <%= number_to_currency(item.price) %>
+        <%= image_tag(item.image_url) if item.image_url.present? %>
+        <%= link_to 'Voir', item %>
+        <%= link_to 'Modifier', edit_item_path(item) %>
+        <%= link_to 'Supprimer', item, method: :delete, data: { confirm: 'Êtes-vous sûr?' } %>
+      <% end %>
+  <%= link_to 'Ajouter un nouvel article', new_item_path %>
