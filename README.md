@@ -1,24 +1,16 @@
-# README
+# Chatonmaton
+Bienvenue sur Chatonmaton, la super application de vente de photos de chats !
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# À propos
+Chatonmaton est une application qui permet aux utilisateurs d'acheter et de vendre des photos de chats. C'est l'endroit parfait pour trouver des images adorables de nos amis félins.
 
-Things you may want to cover:
+# Fonctionnalités
+Achat de photos de chats : Explorez et achetez des photos de chats.
+Vente de photos : Téléchargez et vendez vos propres photos de chats.
+Interface utilisateur intuitive : Une navigation facile et agréable.
 
-* Ruby version
+# Contact
+Pour toute question ou suggestion, contactez-nous à support@chatonmaton.com.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+# Lien figma
+https://www.figma.com/design/6f4KikCOUoc3GVdplaktKr/Chatonmaton?node-id=11-170&t=GA8ydpsIfXV8mmhX-0
