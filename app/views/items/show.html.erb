@@ -1,0 +1,5 @@
+<h1><%= @item.title %></h1>
+<p><%= @item.description %></p>
+<p><%= number_to_currency(@item.price) %></p>
+<%= image_tag(@item.image_url) if @item.image_url.present? %>
+<%= link_to 'Retour à la liste', items_path %>
