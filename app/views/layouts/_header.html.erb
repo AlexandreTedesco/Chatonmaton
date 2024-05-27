@@ -1,0 +1,39 @@
+ <header class="header_2">
+        <nav class="navbar navbar-expand-lg">
+            <div class="inline space_between">
+                <div class=inline>
+                    <a class="logo" href="/">Chatonmaton</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <div class=inline>
+                            <%= link_to "Photos", items_path, class: 'btn btn_inscription btn_primary'%>
+                        </div>
+                    </div>
+                </div>
+                
+                    <%if user_signed_in?%>
+                    <div>
+                        <%= link_to cart_path(cart_current_user.id), class: 'btn btn_inscription btn_primary' do %>
+                            <i class="bi bi-plus"></i> 
+                        <% end %>
+                    </div>
+                    <div class="dropdown">
+                        <button class="btn btn_nav dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Mon compte
+                        </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item btn" href="/users/<%= current_user.id%>">Profil</a>
+                                <%= link_to "Se déconnecter", destroy_user_session_path, data: {turbo_method: :delete}, class:"dropdown-item btn" %>
+                            </div>
+                    <%else%>
+                    <div class=inline>
+                        <%= link_to "S'inscrire", new_user_registration_path, class:"btn_nav btn"%>
+                        <%= link_to "Se connecter", new_user_session_path, class:"btn_nav btn" %>
+                    </div>
+                    <%end%>
+                </div>
+            </div>
+        </nav>
+    </header>
