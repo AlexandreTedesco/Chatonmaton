@@ -20,6 +20,7 @@
                         <p class=cart_price_item><b><%= item.price%> €</b></p>
                     </div>
                 </div>
+                <%= button_to "Passer commande (NEXT GEN)", checkout_create_path(total: MONTANT À PAYER, event_id: ID POUR LA METADATA), class: "btn btn-primary", data: {turbo: false} %>
                 <%end%>
             <%else%>
             <p> Aucun article dans le panier pour le moment </p>
