@@ -68,7 +68,7 @@
                                     </div>
                                 </div>
                                 <div>
-                                    <%= button_to "Finaliser la commande", checkout_create_path(total: total_price(@cart), cart_id: @cart.id), class: "btn btn_second", data: {turbo: false} %>
+                                    <%= button_to "Finaliser la commande", checkout_create_path(total: total_price(@cart) + services_charges(@cart), cart_id: @cart.id), class: "btn btn_second", data: {turbo: false} %>
                                 </div>
                             </div>
                         </div>
