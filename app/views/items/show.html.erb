@@ -3,3 +3,5 @@
 <p><%= number_to_currency(@item.price) %></p>
 <%= image_tag(@item.image_url) if @item.image_url.present? %>
 <%= link_to 'Retour à la liste', items_path %>
+<%= button_to "Passer commande (NEXT GEN)", checkout_create_path(total: @item.price, event_id: @item.id), class: "btn btn-primary", data: {turbo: false} %>
+
