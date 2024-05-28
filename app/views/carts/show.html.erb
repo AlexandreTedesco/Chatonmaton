@@ -1,10 +1,12 @@
 <section>
-    <div>
-        <h1>Panier</h1>
         <%= turbo_frame_tag "cart_items" do%>
+        <div class=all>
             <div class="cart_container">
+                <h1>Panier</h1>
                 <%if @cart.items && @cart.items.length > 0%>
                     <%@cart.items.each do |item|%>
+                    <div class=separator>
+                    </div>
                     <div class=cart_container_item>
                         <div class=cart_container_item>
                                 <%= image_tag(item.image_url, class:"cart_image_item") if item.image_url.present? %>
@@ -25,36 +27,41 @@
                             </div>
                     </div>
                     <%end%>
-                    <div>
-                        <div>
-                            <h3>Sous-total</h3>
-                            <div class=cart_price_item>
-                                <b><%= total_price(@cart)%></b>
+            </div>
+                    <div class=container-total>
+                        <h1 class="white">Détails de la commande</h1>
+                        <div class="separator_white">
+                        </div>
+                        <div class=detail-total-order>
+                            <div class=cart_informations-paiement>
+                                <p>Sous-total</p>
+                                <div class=cart_price_informations-paiements>
+                                    <%= total_price(@cart)%>
+                                </div>
+                            </div>
+                            <div class=cart_informations-paiement>
+                                <p>Frais de livraison</p>
+                                <div class=cart_price_informations-paiements>
+                                    Gratuite
+                                </div>
+                            </div>
+                            <div class=cart_informations-paiement>
+                                <p>Frais de services</p>
+                                <div class=cart_price_informations-paiements>
+                                    <%=services_charges(@cart)%>
+                                </div>
                             </div>
                         </div>
-                        <div>
-                            <h3>Frais de livraison</h3>
-                            <div class=cart_price_item>
-                                <b>Gratuite</b>
+                        <div class=cart_total-order>
+                            <h1 class=white>Total de la commande</h1>
+                            <div class=cart_price_total_item>
+                                <%=total_price(@cart) + services_charges(@cart)%> €
                             </div>
-                        </div>
-                        <div>
-                            <h3>Frais de services</h3>
-                            <div class=cart_price_item>
-                                <b><%=services_charges(@cart)%></b>
-                            </div>
-                        </div>
-                    </div>
-                    <div>
-                        <h3>Total de la commande</h3>
-                        <div class=cart_price_item>
-                            <b><%=total_price(@cart) + services_charges(@cart)%></b>
                         </div>
                     </div>
                 <%else%>
                 <p> Aucun article dans le panier pour le moment </p>
                 <%end%>
-            </div>
         <%end%>
     </div>
 </section>
