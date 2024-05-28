@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CheckoutController < ApplicationController
   def create
     @total = params[:total].to_d
@@ -8,10 +10,10 @@ class CheckoutController < ApplicationController
         {
           price_data: {
             currency: 'eur',
-            unit_amount: (@total*100).to_i,
+            unit_amount: (@total * 100).to_i,
             product_data: {
-              name: 'Rails Stripe Checkout',
-            },
+              name: 'Rails Stripe Checkout'
+            }
           },
           quantity: 1
         }
@@ -20,7 +22,7 @@ class CheckoutController < ApplicationController
         event_id: @event_id
       },
       mode: 'payment',
-      success_url: checkout_success_url + '?session_id={CHECKOUT_SESSION_ID}',
+      success_url: "#{checkout_success_url}?session_id={CHECKOUT_SESSION_ID}",
       cancel_url: checkout_cancel_url
     )
     redirect_to @session.url, allow_other_host: true
@@ -36,7 +38,7 @@ class CheckoutController < ApplicationController
   end
 
   def cancel
-    flash[:alert] = "Le paiement a été annulé ou a échoué."
+    flash[:alert] = 'Le paiement a été annulé ou a échoué.'
 
     # Rediriger l'utilisateur vers une page appropriée ou à l'endroit approprié de votre application
     redirect_to root_path
