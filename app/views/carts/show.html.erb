@@ -48,7 +48,7 @@
                     <div>
                         <h3>Total de la commande</h3>
                         <div class=cart_price_item>
-                            <b><%=total_price(@cart) - services_charges(@cart)%></b>
+                            <b><%=total_price(@cart) + services_charges(@cart)%></b>
                         </div>
                     </div>
                 <%else%>
