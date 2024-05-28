@@ -16,7 +16,7 @@ module CartsHelper
       total_price
     end
 
-    def service_charges(cart)
+    def services_charges(cart)
       total_price(cart) * 0.04
     end
   end

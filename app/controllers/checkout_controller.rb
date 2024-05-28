@@ -3,7 +3,7 @@
 class CheckoutController < ApplicationController
   def create
     @total = params[:total].to_d
-    @event_id = params[:event_id]
+    @event_id = params[:cart_id]
     @session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
       line_items: [

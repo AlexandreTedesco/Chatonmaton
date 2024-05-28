@@ -10,24 +10,25 @@
   }
 
 header{
-    background-color: white;
+    background-color: var(--primary_color);
     position: sticky;
     top: 0;
-    width: 100%;
+    width: 100vw;
     margin-bottom: 4rem;
+    color: var(--complementary_color);
+    display: flex;
+    justify-content: center;
+    z-index: 999;
  }
 
+.right_part_nav{
+  position: relative;
+  left: 0;
+}
+
  .icone{
-  background-color: var(--primary_color);
-  text-decoration: none;
-  padding: 0.5rem 0.5rem 0.5rem;
-  border: none;
-  border-radius: 999px;
   color: var(--complementary_color);
-  font-size: 1.5rem;
-  font-style: normal;
-  width: 3rem;
-  height: 3rem;
+  padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -42,8 +43,6 @@ header{
   color: var(--complementary_color);
   font-size: 1.4rem;
   font-style: normal;
-  width: 5rem;
-  height: 3rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -53,12 +52,21 @@ header{
  .logo{
   font-family: "Shadows Into Light", cursive;
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: 500;
   font-style: normal;
   text-decoration: none;
-  color: var(--primary_color);
+  color: var(--secondary_color);
  }
 
  .dropdown-toggle::after {
   content : none;
  }
+
+nav{
+  max-width: 1800px;
+  width: 90%;
+}
+
+a{
+  color: var(--complementary_color);
+}
