@@ -15,6 +15,8 @@
           <%= link_to 'Modifier', edit_item_path(item) %>
           <%= button_to 'Supprimer', "/items/#{item.id}", method: :delete %>
           <br>
-          <%= button_to "Ajouter au panier", item_cart_items_path(item.id), method: :post, class:"btn btn_primary" %>
+          <%if user_signed_in?%>
+            <%= button_to "Ajouter au panier", item_cart_items_path(item.id), method: :post, class:"btn btn_primary" %>
+          <%end%>
         <% end %>
 </body>

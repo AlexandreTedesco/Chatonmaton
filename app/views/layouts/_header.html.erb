@@ -26,7 +26,7 @@
                         </button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                                 <a class="dropdown-item btn" href="/profile">Profil</a>
-                                <%= link_to "Se déconnecter", destroy_user_session_path, data: {turbo_method: :delete}, class:"dropdown-item btn" %>
+                                <%= button_to "Se déconnecter", destroy_user_session_path, method: :delete, class:"dropdown-item btn" %>
                             </div>
                             <div>
                         <%= link_to cart_path(create_or_retrieve_cart_current_user.id), class: 'btn btn_inscription icone_cart' do %>
