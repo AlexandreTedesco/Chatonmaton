@@ -4,7 +4,7 @@ module CartsHelper
         if cart
             return cart
         else
-            cart = Cart.create(user: current_user)
+            return Cart.create(user: current_user)
         end
     end
 end

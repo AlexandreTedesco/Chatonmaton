@@ -5,16 +5,16 @@
 </head>
 <body>
   <h1>Liste des Articles</h1>
-      <% @items.each do |item| %>
-        <p><%= item.title %></p>
-        <p><%= item.description %></p>
-        <p><%= number_to_currency(item.price) %></p>
-        <p><%= image_tag(item.image_url) if item.image_url.present? %></p>
-        <br>
-        <%= link_to 'Voir', item %>
-        <%= link_to 'Modifier', edit_item_path(item) %>
-        <%= link_to 'Supprimer', item, method: :delete, data: { confirm: 'Êtes-vous sûr?' } %>
-        <br>
-        <%= link_to "Ajouter au panier", item_cart_items_path(item.id), data: {turbo_method: :post}, class:"btn btn_primary" %>
-      <% end %>
+        <% @items.each do |item| %>
+          <p><%= item.title %></p>
+          <p><%= item.description %></p>
+          <p><%= number_to_currency(item.price) %></p>
+          <p><%= image_tag(item.image_url) if item.image_url.present? %></p>
+          <br>
+          <%= link_to 'Voir', item %>
+          <%= link_to 'Modifier', edit_item_path(item) %>
+          <%= link_to 'Supprimer', items_path(item), data: {turbo_method: :delete} %>
+          <br>
+          <%= link_to "Ajouter au panier", item_cart_items_path(item.id), data: {turbo_method: :post}, class:"btn btn_primary" %>
+        <% end %>
 </body>
