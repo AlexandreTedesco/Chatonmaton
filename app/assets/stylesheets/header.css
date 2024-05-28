@@ -1,7 +1,7 @@
 .inline {
     display: flex;
-    align-items: baseline;
-    gap: 0.5rem;
+    align-items: center;
+    gap: 1rem;
   }
 
   .space_between {
@@ -32,4 +32,17 @@ header{
   display: flex;
   justify-content: center;
   align-items: center;
+ }
+
+ .logo{
+  font-family: "Shadows Into Light", cursive;
+  font-size: 2rem;
+  font-weight: 700;
+  font-style: normal;
+  text-decoration: none;
+  color: var(--primary_color);
+ }
+
+ .dropdown-toggle::after {
+  content : none;
  }
