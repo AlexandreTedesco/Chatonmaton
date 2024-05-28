@@ -1,0 +1,26 @@
+.cart_section{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.cart_image_item{
+ border-radius: 5px;
+ height:100%;
+ max-height: 140px;
+}
+
+.cart_container{
+    display: flex;
+    gap: 2rem;
+}
+
+.cart_price_item{
+    font-size: 1.5rem;
+}
+
+.cart_content_item{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

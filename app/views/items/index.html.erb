@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Welcome page</title>
+  <title>Collections</title>
 </head>
 <body>
   <h1>Liste des Articles</h1>
@@ -15,6 +15,6 @@
         <%= link_to 'Modifier', edit_item_path(item) %>
         <%= link_to 'Supprimer', item, method: :delete, data: { confirm: 'Êtes-vous sûr?' } %>
         <br>
+        <%= link_to "Ajouter au panier", item_cart_items_path(item.id), data: {turbo_method: :post}, class:"btn btn_primary" %>
       <% end %>
-  <%= link_to 'Ajouter un nouvel article', new_item_path %>
 </body>

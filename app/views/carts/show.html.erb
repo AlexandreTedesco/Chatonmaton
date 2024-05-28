@@ -1,25 +1,28 @@
-<section>
+<section class="cart_section">
     <div>
         <h1>Panier</h1>
-        <div>
             <%if @cart.items && @cart.items.length > 0%>
-                <%@cart.items.each do%>
-                <div>
-                    <%item.image_url%>
-                </div>
-                <div>
-                        <h2><%item.title%></h2>
-                        <%= link_to item_path(item.id), data: {turbo_method: :delete},  class: 'btn btn_inscription btn_primary' do %>
-                        <i class="bi bi-trash3"></i> 
+                <%@cart.items.each do |item|%>
+                <div class=cart_container>
+                        <%= image_tag(item.image_url, class:"cart_image_item") if item.image_url.present? %>
+                    <div class=cart_content_item>
+                        <div>
+                            <h2><%= item.title%></h2>
+                            <p><%= item.description %></p>
+                        </div>
+                        <%= link_to item_cart_item_path(item.id), data: {turbo_method: :delete},  class: 'icone' do %>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                            <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"/>
+                            </svg>
                         <% end %>
-                </div>
-                <div>
-                    <p><%item.price%></p>
+                    </div>
+                    <div>
+                        <p class=cart_price_item><b><%= item.price%> €</b></p>
+                    </div>
                 </div>
                 <%end%>
             <%else%>
             <p> Aucun article dans le panier pour le moment </p>
             <%end%>
-        </div>
     </div>
 </section>
