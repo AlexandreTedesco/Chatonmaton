@@ -34,6 +34,10 @@ gem "stripe"
 
 gem "mailjet"
 
+gem "dotenv"
+
+gem "table_print"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 

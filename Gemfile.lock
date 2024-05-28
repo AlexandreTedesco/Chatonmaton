@@ -107,6 +107,7 @@ GEM
       responders
       warden (~> 1.2.3)
     domain_name (0.6.20240107)
+    dotenv (3.1.2)
     drb (2.2.1)
     erubi (1.12.0)
     faker (3.3.1)
@@ -251,6 +252,7 @@ GEM
     stringio (3.1.0)
     stripe (11.5.0)
     strscan (3.1.0)
+    table_print (1.5.7)
     thor (1.3.1)
     timeout (0.4.1)
     turbo-rails (2.0.5)
@@ -289,6 +291,7 @@ DEPENDENCIES
   capybara
   debug
   devise
+  dotenv
   faker
   jbuilder
   jsbundling-rails
@@ -300,6 +303,7 @@ DEPENDENCIES
   sprockets-rails
   stimulus-rails
   stripe
+  table_print
   turbo-rails
   tzinfo-data
   web-console
