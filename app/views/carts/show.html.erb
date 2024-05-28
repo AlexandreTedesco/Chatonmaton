@@ -25,6 +25,32 @@
                             </div>
                     </div>
                     <%end%>
+                    <div>
+                        <div>
+                            <h3>Sous-total</h3>
+                            <div class=cart_price_item>
+                                <b><%= total_price(@cart)%></b>
+                            </div>
+                        </div>
+                        <div>
+                            <h3>Frais de livraison</h3>
+                            <div class=cart_price_item>
+                                <b>Gratuite</b>
+                            </div>
+                        </div>
+                        <div>
+                            <h3>Frais de services</h3>
+                            <div class=cart_price_item>
+                                <b><%=services_charges(@cart)%></b>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3>Total de la commande</h3>
+                        <div class=cart_price_item>
+                            <b><%=total_price(@cart) - services_charges(@cart)%></b>
+                        </div>
+                    </div>
                 <%else%>
                 <p> Aucun article dans le panier pour le moment </p>
                 <%end%>

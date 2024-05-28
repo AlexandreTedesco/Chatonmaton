@@ -15,4 +15,8 @@ module CartsHelper
         end
         return total_price
     end
+
+    def services_charges(cart)
+        return services_charges = total_price(cart) * 4 / 100
+    end
 end
