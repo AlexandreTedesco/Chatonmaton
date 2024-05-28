@@ -5,10 +5,7 @@ class CartItemsController < ApplicationController
         @item = Item.find(id)
         @cart_item = CartItem.new(cart: @cart, item: @item)
         if @cart_item.save
-          respond_to do |format|
-            format.html {redirect_back(fallback_location: root_path)}
-            format.turbo_stream
-          end
+          redirect_back(fallback_location: root_path)
           flash[:success] = "L'article a bien été ajouté au panier" 
         end
     end
