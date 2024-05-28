@@ -13,7 +13,7 @@
           <br>
           <%= link_to 'Voir', item %>
           <%= link_to 'Modifier', edit_item_path(item) %>
-          <%= link_to 'Supprimer', items_path(item), data: {turbo_method: :delete} %>
+          <%= link_to 'Supprimer', "/items/#{item.id}", data: {turbo_method: :delete} %>
           <br>
           <%= link_to "Ajouter au panier", item_cart_items_path(item.id), data: {turbo_method: :post}, class:"btn btn_primary" %>
         <% end %>
