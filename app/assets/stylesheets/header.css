@@ -32,6 +32,23 @@ header{
   align-items: center;
  }
 
+ .icone_cart{
+  background-color: var(--primary_color);
+  text-decoration: none;
+  padding: 0.5rem 0.5rem 0.5rem;
+  border: none;
+  border-radius: 999px;
+  color: var(--complementary_color);
+  font-size: 1.4rem;
+  font-style: normal;
+  width: 5rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+ }
+
  .logo{
   font-family: "Shadows Into Light", cursive;
   font-size: 2rem;

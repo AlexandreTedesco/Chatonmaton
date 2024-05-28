@@ -1,8 +1,13 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
+<<<<<<< HEAD
   include CartsHelper
   before_action :configure_permitted_parameters, if: :devise_controller?
+=======
+    include CartsHelper
+    before_action :configure_permitted_parameters, if: :devise_controller?
+>>>>>>> master
 
   protected
 
