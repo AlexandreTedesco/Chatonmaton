@@ -1,17 +1,24 @@
 # frozen_string_literal: true
 
 module CartsHelper
-  def create_or_retrieve_cart_current_user
-    cart = Cart.find_by(user_id: current_user.id)
-    return cart if cart
+    def create_or_retrieve_cart_current_user()
+        cart = Cart.find_by(user: current_user)
+        if cart
+            return cart
+        else
+            return Cart.create(user: current_user)
+        end
+    end
 
-    Cart.create(user_id: current_user.id)
-  end
+    def total_price(cart)
+        total_price = 0
+        cart.items.each do |item|
+            total_price = total_price + item.price
+        end
+        return total_price
+    end
 
-  def create_or_retrieve_cart_current_user
-    cart = Cart.find_by(user: current_user)
-    return cart if cart
-
-    Cart.create(user: current_user)
-  end
+    def services_charges(cart)
+        return services_charges = total_price(cart) * 4 / 100
+    end
 end
