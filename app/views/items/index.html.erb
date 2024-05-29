@@ -9,7 +9,9 @@
           <p><%= item.title %></p>
           <p><%= item.description %></p>
           <p><%= number_to_currency(item.price) %></p>
-          <p><%= image_tag(item.image_url) if item.image_url.present? %></p>
+          <p><% if item.image.attached? %>
+                <div class=container_image_product><%= image_tag item.image, alt: 'image', class: "image_product" %></div>
+             <% end %></p>
           <br>
           <%= link_to 'Voir', item %>
           <%= link_to 'Modifier', edit_item_path(item) %>

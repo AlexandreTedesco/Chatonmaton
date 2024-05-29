@@ -15,6 +15,7 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
+    @item.image.attach(params[:image])
     if @item.save
       redirect_to @item
       flash[:success] = "L'article a été créé avec succès."
@@ -47,6 +48,6 @@ class ItemsController < ApplicationController
   end
 
   def item_params
-    params.require(:item).permit(:title, :description, :price, :image_url)
+    params.require(:item).permit(:title, :description, :price, :image)
   end
 end
