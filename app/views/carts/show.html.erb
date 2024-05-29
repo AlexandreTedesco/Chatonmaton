@@ -12,7 +12,7 @@
                         <%@cart.items.each do |item|%>
                         <div class="cart_container_item background_card">
                             <div class=cart_container_item>
-                                    <%= image_tag(item.image_url, class:"cart_image_item") if item.image_url.present? %>
+                                    <%= image_tag(item.image, class:"cart_image_item") if item.image.present? %>
                                 <div class=cart_content_item>
                                     <div>
                                         <h2 class=margin_bottom><%= item.title%></h2>
