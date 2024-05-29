@@ -13,7 +13,6 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    @item.image.attach(params[:image])
     if @item.save
       redirect_to @item
       flash[:success] = "L'article a été créé avec succès."
@@ -25,7 +24,7 @@ class ItemsController < ApplicationController
 
   def update
     if @item.update(item_params)
-      redirect_to @item, notice: 'L\'article a été mis à jour avec succès.'
+      redirect_to @item
       flash[:success] = "L'article a été modifié avec succès."
     else
       render :edit
