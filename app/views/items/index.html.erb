@@ -5,20 +5,33 @@
 </head>
 <body>
   <h1>Liste des Articles</h1>
+    <div class="container">
+      <div class="row">
         <% @items.each do |item| %>
-          <p><%= item.title %></p>
+        <div class="col-6 mb-3 p-2">
+          <% if item.image.attached? %>
+            <div class=container_image_product><%= image_tag item.image, alt: 'image', class: "image_product" %></div>
+          <% end %>
+            <h2><%= item.title %></h2>
           <p><%= item.description %></p>
           <p><%= number_to_currency(item.price) %></p>
-          <p><% if item.image.attached? %>
-                <div class=container_image_product><%= image_tag item.image, alt: 'image', class: "image_product" %></div>
-             <% end %></p>
-          <br>
-          <%= link_to 'Voir', item %>
-          <%= link_to 'Modifier', edit_item_path(item) %>
-          <%= button_to 'Supprimer', "/items/#{item.id}", method: :delete %>
-          <br>
           <%if user_signed_in?%>
             <%= button_to "Ajouter au panier", item_cart_items_path(item.id), method: :post, class:"btn btn_primary" %>
           <%end%>
+          <br>
+          <div class="row">
+            <div class="col">
+              <%= link_to 'Voir', item, class: "btn btn_second" %>
+            </div>
+            <div class="col">
+              <%= link_to 'Modifier', edit_item_path(item), class: "btn btn_second" %>
+            </div>
+            <div class="col">
+              <%= button_to 'Supprimer', "/items/#{item.id}", method: :delete, class: "btn btn-danger" %></p>
+            </div>
+          </div>
+        </div>
         <% end %>
+      </div>
+    </div>
 </body>
