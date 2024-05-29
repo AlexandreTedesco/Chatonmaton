@@ -1,0 +1,27 @@
+/* profile.css */
+
+/* Centrer l'image de profil */
+.profile-image {
+    margin: 0 auto;
+  }
+
+  /* Espacement entre les sections */
+  .profile-section {
+    margin-top: 40px;
+  }
+
+  /* Style pour la liste des informations */
+  .profile-info-list {
+    list-style-type: none;
+    padding-left: 0;
+  }
+
+  .profile-info-list li {
+    padding: 10px 0;
+  }
+
+  .profile-info-list .fw-bold {
+    color: #333; /* Couleur pour les éléments en gras */
+  }
+
+  /* Ajoutez d'autres styles au besoin */
