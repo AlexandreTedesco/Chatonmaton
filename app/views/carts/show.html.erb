@@ -52,7 +52,7 @@
                                 <div class=cart_informations-paiement>
                                     <p>Frais de services</p>
                                     <div class=cart_price_informations-paiements>
-                                        <p><%=services_charges(@cart)%> €</p>
+                                        <p><%= number_with_precision(services_charges(@cart), precision: 2) %> €</p>
                                     </div>
                                 </div>
                             </div>
@@ -62,7 +62,7 @@
                                     <div class=separator_white>
                                     </div>
                                     <div class=cart_price_total_item>
-                                        <%=total_price(@cart) + services_charges(@cart)%> €
+                                        <%= number_with_precision(total_price(@cart) + services_charges(@cart), precision: 2) %> €
                                     </div>
                                 </div>
                                 <div>
