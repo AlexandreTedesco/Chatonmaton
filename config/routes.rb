@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'orders/new'
   get 'orders/create'
   get 'static_pages/accueil'
+  get 'static_pages/contact'
   root 'static_pages#accueil'
   resources :items do
     resources :cart_items, only: %i[create destroy]
