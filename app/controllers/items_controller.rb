@@ -7,43 +7,35 @@ class ItemsController < ApplicationController
     @items = Item.all
   end
 
-  def show; end
-
   def new
     @item = Item.new
   end
 
-  def edit; end
-
   def create
     @item = Item.new(item_params)
+    @item.image.attach(params[:image])
     if @item.save
-      redirect_to @item, notice: 'L\'article a été créé avec succès.'
+      redirect_to @item
+      flash[:success] = "L'article a été créé avec succès."
     else
       render :new
+      flash[:error] = "Une erreur a été détectée : #{@item.errors.full_messages.join(",")}"
     end
   end
 
   def update
     if @item.update(item_params)
       redirect_to @item, notice: 'L\'article a été mis à jour avec succès.'
+      flash[:success] = "L'article a été modifié avec succès."
     else
       render :edit
+      flash[:error] = "Une erreur a été détectée : #{@item.errors.full_messages.join(",")}"
     end
   end
 
   def destroy
     @item.destroy
-    redirect_to items_url, notice: 'L\'article a été supprimé avec succès.'
-  end
-
-  private
-
-  def set_item
-    @item = Item.find(params[:id])
-  end
-
-  def item_params
-    params.require(:item).permit(:title, :description, :price, :image)
+    redirect_to items_url
+    flash[:success] = "L'article a été supprimé avec succès."
   end
 end

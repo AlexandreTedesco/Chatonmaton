@@ -9,7 +9,7 @@ class CartItemsController < ApplicationController
     return unless @cart_item.save
 
     redirect_back(fallback_location: root_path)
-    flash[:success] = "L'article a bien été ajouté au panier"
+    flash[:success] = "L'article a été ajouté au panier"
   end
 
   def destroy
@@ -19,6 +19,6 @@ class CartItemsController < ApplicationController
     @cart_item = CartItem.find_by(cart: @cart, item: @item)
     @cart_item.destroy
     redirect_back(fallback_location: root_path)
-    flash[:success] = "L'article a bien été supprimé de votre panier"
+    flash[:success] = "L'article a  été supprimé de votre panier"
   end
 end

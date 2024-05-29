@@ -1,7 +1,7 @@
 <section>
     <div class=all>
     <%= turbo_frame_tag "cart_items" do%>
-    <div class=title_h1>
+    <div class=title_h>
         <h1>Panier</h1>
         <div class=underlining_title>
         </div>
@@ -10,8 +10,6 @@
                 <div class="cart_container">
                     <%if @cart.items && @cart.items.length > 0%>
                         <%@cart.items.each do |item|%>
-                        <%# <div class=separator>
-                        </div> %>
                         <div class="cart_container_item background_card">
                             <div class=cart_container_item>
                                     <%= image_tag(item.image_url, class:"cart_image_item") if item.image_url.present? %>
@@ -54,7 +52,7 @@
                                 <div class=cart_informations-paiement>
                                     <p>Frais de services</p>
                                     <div class=cart_price_informations-paiements>
-                                        <p><%=services_charges(@cart)%> €</p>
+                                        <p><%= number_with_precision(services_charges(@cart), precision: 2) %> €</p>
                                     </div>
                                 </div>
                             </div>
@@ -64,7 +62,7 @@
                                     <div class=separator_white>
                                     </div>
                                     <div class=cart_price_total_item>
-                                        <%=total_price(@cart) + services_charges(@cart)%> €
+                                        <%= number_with_precision(total_price(@cart) + services_charges(@cart), precision: 2) %> €
                                     </div>
                                 </div>
                                 <div>

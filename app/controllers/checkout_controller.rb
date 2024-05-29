@@ -42,7 +42,9 @@ class CheckoutController < ApplicationController
   end
 
   def cancel
-    flash[:alert] = 'Le paiement a été annulé ou a échoué.'
+    flash[:error] = 'Le paiement a été annulé ou a échoué.'
+
+    # Rediriger l'utilisateur vers une page appropriée ou à l'endroit approprié de votre application
     redirect_to root_path
   end
 end
