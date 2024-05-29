@@ -7,13 +7,9 @@ class ItemsController < ApplicationController
     @items = Item.all
   end
 
-  def show; end
-
   def new
     @item = Item.new
   end
-
-  def edit; end
 
   def create
     @item = Item.new(item_params)
@@ -35,15 +31,5 @@ class ItemsController < ApplicationController
   def destroy
     @item.destroy
     redirect_to items_url, notice: 'L\'article a été supprimé avec succès.'
-  end
-
-  private
-
-  def set_item
-    @item = Item.find(params[:id])
-  end
-
-  def item_params
-    params.require(:item).permit(:title, :description, :price, :image)
-  end
+  end 
 end
