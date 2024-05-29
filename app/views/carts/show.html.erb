@@ -1,7 +1,7 @@
 <section>
     <div class=all>
     <%= turbo_frame_tag "cart_items" do%>
-    <div class=title_h1>
+    <div class=title_h>
         <h1>Panier</h1>
         <div class=underlining_title>
         </div>
@@ -10,8 +10,6 @@
                 <div class="cart_container">
                     <%if @cart.items && @cart.items.length > 0%>
                         <%@cart.items.each do |item|%>
-                        <%# <div class=separator>
-                        </div> %>
                         <div class="cart_container_item background_card">
                             <div class=cart_container_item>
                                     <%= image_tag(item.image_url, class:"cart_image_item") if item.image_url.present? %>

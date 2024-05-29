@@ -10,7 +10,7 @@
           <p><%= item.description %></p>
           <p><%= number_to_currency(item.price) %></p>
           <p><% if item.image.attached? %>
-                <%= image_tag item.display_image %>
+                <div class=container_image_product><%= image_tag item.image, alt: 'image', class: "image_product" %></div>
              <% end %></p>
           <br>
           <%= link_to 'Voir', item %>

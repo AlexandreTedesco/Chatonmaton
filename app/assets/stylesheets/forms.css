@@ -1,0 +1,46 @@
+.container_form{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    background-color: var(--transparency_color);
+    padding: 2rem;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.container_form_element{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+}
+
+.label{
+    color: var(--primary_color);
+    font-weight: 600;
+}
+
+.input{
+    background-color: #fffcf4;
+}
+
+.container_inline_elements_form{
+    flex-basis: 50%;
+    display: flex;
+    gap: 1rem;
+}
+
+textarea.form-control {
+    min-height: 10rem;
+}
+
+.input:active{
+    border: var(--secondary_color);
+}
+
+@media (max-width: 1200px){
+    .container_inline_elements_form {
+        flex-direction: column;
+    }
+
+}

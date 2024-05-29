@@ -75,19 +75,33 @@ table {
     --primary_color: #0D4131;
     --complementary_color: #EBDAB9;
     --tiercary_color: #E35B27;
+    --transparency_color: #ebdab974;
     font-family: "Poppins", sans-serif;
     font-weight: 400;
     font-style: normal;
-    /* à mettre dans les sections */
-    /* max-width: 1800px;
-    padding-left: 2rem;
-    padding-right: 2rem; */
+    line-height: 1.5rem;
     width: 100%;
     font-size: 1rem;
     display: flex;
     flex-direction: column;
     align-items: center;
  }
+
+ .icone_background{
+  background-color: var(--primary_color);
+  border: none;
+  padding: 0.5rem 0.5rem 0.5rem;
+  border-radius: 999px;
+  color: var(--complementary_color);
+  font-size: 1.4rem;
+  font-style: normal;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
 
  h1{
   position: relative;
@@ -102,7 +116,7 @@ table {
   z-index: 1;
  }
 
- .title_h1{
+ .title_h{
   position: relative;
   margin-bottom: 2rem;
   width: fit-content;
@@ -165,10 +179,10 @@ table {
 
 section{
   display: flex;
+  flex-direction: column;
   justify-content: center;
   width: 100%;
   max-width: 1800px;
   padding-left: 2rem;
   padding-right: 2rem;
 }
-
