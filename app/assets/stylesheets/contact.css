@@ -1,0 +1,44 @@
+.container_contact{
+    display: flex;
+    gap:10rem;
+}
+
+.width_form_contact{
+    width: 50%;
+}
+
+.container_column_left{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.text_contact{
+    max-width: 600px;
+}
+
+.container_infos_contact{
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.container_infos_contact_card{
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+}
+
+.title_infos_contact{
+    font-weight: 600;
+}
+
+@media (max-width: 1200px){
+    .container_contact {
+        flex-direction: column;
+    }
+
+    .width_form_contact {
+        width: 100%;
+    }
+}

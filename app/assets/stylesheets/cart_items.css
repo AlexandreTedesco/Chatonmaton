@@ -18,7 +18,7 @@
 }
 
 .background_card{
-    background-color: #ebdab956;
+    background-color: var(--transparency_color);
     padding: 3rem;
     border-radius: 10px;
 }
@@ -121,19 +121,3 @@
     gap: 4rem;
     align-items: center;
 }
-
-.icone_background{
-    background-color: var(--primary_color);
-    border: none;
-    padding: 0.5rem 0.5rem 0.5rem;
-    border-radius: 999px;
-    color: var(--complementary_color);
-    font-size: 1.4rem;
-    font-style: normal;
-    width: 3rem;
-    height: 3rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.5rem;
-   }
