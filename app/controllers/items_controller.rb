@@ -28,7 +28,7 @@ class ItemsController < ApplicationController
       redirect_to @item
       flash[:success] = "L'article a été modifié avec succès."
     else
-      redirect_to :edit
+      redirect_to edit_item_path
       flash[:error] = "Une erreur a été détectée : #{@item.errors.full_messages.join(",")}"
     end
   end
