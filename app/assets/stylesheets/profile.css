@@ -1,27 +1,37 @@
-/* profile.css */
+.profile-section {
+  padding: 50px 0;
+  background-color: #f9f9f9;
+}
 
-/* Centrer l'image de profil */
 .profile-image {
-    margin: 0 auto;
-  }
+  margin-bottom: 20px;
+}
 
-  /* Espacement entre les sections */
-  .profile-section {
-    margin-top: 40px;
-  }
+.profile-info,
+.profile-orders,
+.profile-favorites {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
 
-  /* Style pour la liste des informations */
-  .profile-info-list {
-    list-style-type: none;
-    padding-left: 0;
-  }
+.profile-info-list {
+  list-style-type: none;
+  padding-left: 0;
+}
 
-  .profile-info-list li {
-    padding: 10px 0;
-  }
+.profile-info-list li {
+  padding: 10px 0;
+}
 
-  .profile-info-list .fw-bold {
-    color: #333; /* Couleur pour les éléments en gras */
-  }
+.profile-info-list .fw-bold {
+  font-weight: bold;
+  color: #333;
+}
 
-  /* Ajoutez d'autres styles au besoin */
+.profile-heading {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
