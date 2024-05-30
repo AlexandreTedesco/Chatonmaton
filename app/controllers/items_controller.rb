@@ -14,7 +14,6 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      redirect_to @item
       flash[:success] = "L'article a été créé avec succès."
     else
       render :new
