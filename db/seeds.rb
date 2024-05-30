@@ -1,28 +1,47 @@
 # frozen_string_literal: true
 
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
-
 require 'faker'
+require 'httparty'
 
+# Supprimer les enregistrements des tables dépendantes
+CartItem.destroy_all
+Cart.destroy_all
+Order.destroy_all
+
+# Supprimer les enregistrements principaux
 Item.destroy_all
+User.destroy_all
 
-10.times do
-  Item.create!(
-    title: Faker::Creature::Cat.name,
-    description: Faker::Creature::Cat.registry,
-    price: Faker::Commerce.price(range: 8.0..35.0),
-    image: Faker::LoremFlickr.image(size: '300x300', search_terms: ['kitten'])
-  )
+# Méthode pour obtenir une image de chat depuis The Cat API
+def fetch_cat_image_url
+  response = HTTParty.get('https://api.thecatapi.com/v1/images/search', headers: {
+    'x-api-key' => 'live_fpDKqlZCkKrcC1qUKxpG91n7xFhmP07dh8t3LePbUjSlXzBi1krTMGsTXwVjukmY' # Remplacez par votre clé API The Cat API
+  })
+  if response.success?
+    response.parsed_response[0]['url']
+  else
+    nil
+  end
 end
 
+# Créer des items avec des images de chats aléatoires
+10.times do
+  image_url = fetch_cat_image_url
+
+  # Assurez-vous que l'image URL n'est pas vide
+  if image_url.present?
+    Item.create!(
+      title: Faker::Creature::Cat.name,
+      description: Faker::Creature::Cat.registry,
+      price: Faker::Commerce.price(range: 8.0..35.0),
+      image_url: image_url
+    )
+  else
+    puts "Image URL is blank, skipping item creation."
+  end
+end
+
+# Créer des utilisateurs
 10.times do
   User.create!(
     email: Faker::Internet.email,
@@ -32,3 +51,4 @@ end
     description: Faker::Lorem.paragraph(sentence_count: 3)
   )
 end
+puts "seed completed"
