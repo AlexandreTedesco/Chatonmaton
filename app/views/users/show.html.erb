@@ -1,57 +1,41 @@
-<!-- profile.html.erb -->
-
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Profil de <%= @user.first_name %> <%= @user.last_name %></title>
-</head>
-<body>
+<section class="profile-section">
   <div class="container">
     <div class="row">
-      <div class="col-md-4 text-center profile-image"> <!-- Ajout de la classe profile-image -->
-        <%= image_tag asset_path('chat_profil.jpg'), class: "img-fluid rounded-circle", alt: "Photo de profil" %>
-      </div>
-
-    <div class="row mt-4 profile-section"> <!-- Ajout de la classe profile-section -->
-      <div class="col-md-12">
-        <h3>Informations :</h3>
-        <ol class="list-group list-group-numbered profile-info-list"> <!-- Ajout de la classe profile-info-list -->
-          <li class="list-group-item d-flex justify-content-between align-items-start">
-            <div class="ms-2 me-auto">
-              <div class="fw-bold">Nom :</div>
-              <%= @user.first_name %> <%= @user.last_name %>
-            </div>
-          </li>
-          <li class="list-group-item d-flex justify-content-between align-items-start">
-            <div class="ms-2 me-auto">
-              <div class="fw-bold">Email :</div>
-              <%= @user.email %>
-            </div>
-          </li>
-          <li class="list-group-item d-flex justify-content-between align-items-start">
-            <div class="ms-2 me-auto">
-              <div class="fw-bold">Description :</div>
-              <%= @user.description %>
-            </div>
-          </li>
-          <!-- Ajoutez ici d'autres éléments d'information -->
-        </ol>
+      <div class="col-md-4 text-center profile-image">
+  <% if @user.profile_picture.attached? %>
+    <%= image_tag @user.profile_picture, class: "img-fluid rounded-circle", alt: "Photo de profil" %>
+  <% else %>
+    <%= image_tag asset_path('chat_profil.jpg'), class: "img-fluid rounded-circle", alt: "Photo de profil" %>
+  <% end %>
+  <br>
+  <%= link_to "Modifier ma photo de profil", edit_user_path(@user), class: "btn btn_primary mt-3" %>
+</div>
+      <div class="col-md-8">
+        <div class="profile-info">
+          <h2 class="profile-heading">Informations de profil</h2>
+          <ul class="profile-info-list">
+            <li>
+              <span class="fw-bold">Nom :</span> <%= @user.first_name %> <%= @user.last_name %>
+            </li>
+            <li>
+              <span class="fw-bold">Email :</span> <%= @user.email %>
+            </li>
+            <li>
+              <span class="fw-bold">Description :</span> <%= @user.description %>
+            </li>
+            <!-- Ajoutez ici d'autres éléments d'information -->
+          </ul>
+          <%= link_to "Modifier mon profil", edit_user_path(@user), class: "btn btn_primary" %>
+        </div>
       </div>
     </div>
 
-    <div class="row mt-4 profile-section"> <!-- Ajout de la classe profile-section -->
+    <div class="row mt-4">
       <div class="col-md-12">
-        <h3>Commandes passées :</h3>
-        <!-- Ajoutez ici la logique pour afficher les commandes passées -->
+        <div class="profile-orders">
+          <h2 class="profile-heading">Commandes passées</h2>
+          <p class="text-muted">Vous n'avez pas encore passé de commandes.</p>
+          <!-- Ajoutez ici la logique pour afficher les commandes passées -->
+        </div>
       </div>
     </div>
-
-    <div class="row mt-4 profile-section"> <!-- Ajout de la classe profile-section -->
-      <div class="col-md-12">
-        <h3>Coups de cœur :</h3>
-        <!-- Ajoutez ici la logique pour afficher les coups de cœur -->
-      </div>
-    </div>
-  </div>
-</body>
-</html>
