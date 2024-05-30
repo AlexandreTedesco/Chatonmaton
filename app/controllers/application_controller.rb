@@ -3,6 +3,7 @@
 class ApplicationController < ActionController::Base
   include ItemsHelper
   include CartsHelper
+  include OrdersHelper
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected
