@@ -8,19 +8,15 @@
     <div class="container">
       <div class="row">
         <% @items.each do |item| %>
-          <div class="col-sm-6 col-md-4 col-lg-3 mb-3 p-2 section_collection">
+          <div class="col-sm-6 col-md-4 col-lg-3 mb-3 p-3 section_collection">
               <% if item.image.attached? %>
                 <div class="container_image_product">
                   <%= link_to item do %>
                     <%= image_tag item.image, alt: 'image', class: "image_product img-fluid" %>
                   <%end%>
                 </div>
-              <% elsif item.image_url.present? %>
-                <div class="container_image_product">
-                  <%= image_tag item.image_url, alt: 'image', class: "image_product img-fluid" %>
-                </div>
               <% end %>
-            <div class=inline_container_item>
+            <div class=gap_container_info_item>
               <div class=container_infos_left_item>
                 <h2><%= item.title %></h2>
                 <p><%= item.description %></p>
