@@ -39,6 +39,7 @@ class CheckoutController < ApplicationController
       cart_id: @cart_id,
       stripe_session_id: @session.id
     )
+
     
     if order
       current_user.cart.destroy
