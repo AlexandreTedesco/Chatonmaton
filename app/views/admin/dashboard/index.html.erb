@@ -2,6 +2,7 @@
   <!-- Colonne Utilisateurs -->
   <div class="col">
     <h2>Utilisateurs</h2>
+    <%= link_to 'Créer un nouvel utilisateur', new_user_path, class: 'btn btn-success mb-2' %>
     <ol class="list-group list-group-numbered">
       <% @users.each do |user| %>
         <li class="list-group-item d-flex justify-content-between align-items-start">
@@ -13,6 +14,10 @@
             Description: <%= user.description %><br>
             Admin: <%= user.admin ? 'Oui' : 'Non' %>
           </div>
+          <div class="btn-group" role="group" aria-label="Actions">
+            <%= link_to 'Modifier', edit_user_path(user), class: 'btn btn-primary' %>
+            <%= link_to 'Supprimer', user, method: :delete, data: { confirm: 'Êtes-vous sûr?' }, class: 'btn btn-danger' %>
+          </div>
         </li>
       <% end %>
     </ol>
@@ -21,6 +26,7 @@
   <!-- Colonne Articles -->
   <div class="col">
     <h2>Articles</h2>
+    <%= link_to 'Créer un nouvel article', new_item_path, class: 'btn btn-success mb-2' %>
     <ol class="list-group list-group-numbered">
       <% @items.each do |item| %>
         <li class="list-group-item d-flex justify-content-between align-items-start">
@@ -30,6 +36,10 @@
             Description: <%= item.description %><br>
             Prix: <%= item.price %>
           </div>
+          <div class="btn-group" role="group" aria-label="Actions">
+            <%= link_to 'Modifier', edit_item_path(item), class: 'btn btn-primary' %>
+            <%= link_to 'Supprimer', item, method: :delete, data: { confirm: 'Êtes-vous sûr?' }, class: 'btn btn-danger' %>
+          </div>
         </li>
       <% end %>
     </ol>
@@ -38,12 +48,17 @@
   <!-- Colonne Commandes -->
   <div class="col">
     <h2>Commandes</h2>
+    <%= link_to 'Créer une nouvelle commande', new_order_path, class: 'btn btn-success mb-2' %>
     <ol class="list-group list-group-numbered">
       <% @orders.each do |order| %>
         <li class="list-group-item d-flex justify-content-between align-items-start">
           <div class="ms-2 me-auto">
             <div class="fw-bold">Commande</div>
             ID de la commande: <%= order.id %>
+          </div>
+          <div class="btn-group" role="group" aria-label="Actions">
+            <%= link_to 'Afficher', order, class: 'btn btn-primary' %>
+            <%= link_to 'Supprimer', order, method: :delete, data: { confirm: 'Êtes-vous sûr?' }, class: 'btn btn-danger' %>
           </div>
         </li>
       <% end %>
