@@ -24,6 +24,8 @@ Rails.application.routes.draw do
     get 'dashboard', to: 'dashboard#index'
   end
 
+  get '/profile', to: 'users#show'
+
   # Route pour afficher le statut de santé de l'application
   get 'up', to: 'rails/health#show', as: :rails_health_check
 
@@ -32,9 +34,4 @@ Rails.application.routes.draw do
 
   # Routes pour Devise
   devise_for :users
-
-  # Vous n'avez pas besoin de cette route spécifique pour afficher le profil de l'utilisateur
-  get '/profile', to: 'users#show'
-
-  # Vous pouvez laisser Devise gérer l'affichage des profils
 end
