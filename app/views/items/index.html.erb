@@ -8,47 +8,38 @@
     <div class="container">
       <div class="row">
         <% @items.each do |item| %>
-        <div class="col-6 mb-3 p-2">
-          <% if item.image.attached? %>
-            <div class=container_image_product>
-              <%= link_to item do %>
-                <%= image_tag item.image, alt: 'image', class: "image_product" %>
+          <div class="col-6 mb-3 p-2">
+              <% if item.image.attached? %>
+                <div class=container_image_product>
+                  <%= link_to item do %>
+                    <%= image_tag item.image, alt: 'image', class: "image_product" %>
+                  <%end%>
+                </div>
+              <% elsif item.image_url.present? %>
+                <div class="container_image_product">
+                  <%= image_tag item.image_url, alt: 'image', class: "image_product" %>
+                </div>
               <% end %>
-            </div>
-          <% elsif item.image_url.present? %>
-            <div class="container_image_product">
-              <%= image_tag item.image_url, alt: 'image', class: "image_product" %>
-            </div>
-          <% end %>
             <h2><%= item.title %></h2>
-          <p><%= item.description %></p>
-          <p><%= number_to_currency(item.price) %></p>
-          <%if user_signed_in?%>
-            <%= button_to "Ajouter au panier", item_cart_items_path(item.id), method: :post, class:"btn btn_primary" %>
-          <%end%>
-          <br>
-        </div>
+            <p><%= item.description %></p>
+            <p><%= number_to_currency(item.price) %></p>
+            <% if user_signed_in? %>
+              <%= button_to "Ajouter au panier", item_cart_items_path(item.id), method: :post, class: "btn btn_primary" %>
+            <% end %>
+            <br>
+            <div class="row">
+              <div class="col">
+                <%= link_to 'Voir', item, class: "btn btn_second" %>
+              </div>
+              <div class="col">
+                <%= link_to 'Modifier', edit_item_path(item), class: "btn btn_second" %>
+              </div>
+              <div class="col">
+                <%= button_to 'Supprimer', item_path(item), method: :delete, class: "btn btn-danger" %>
+              </div>
+            </div>
+          </div>
         <% end %>
-        <h2><%= item.title %></h2>
-        <p><%= item.description %></p>
-        <p><%= number_to_currency(item.price) %></p>
-        <% if user_signed_in? %>
-          <%= button_to "Ajouter au panier", item_cart_items_path(item.id), method: :post, class: "btn btn_primary" %>
-        <% end %>
-        <br>
-        <div class="row">
-          <div class="col">
-            <%= link_to 'Voir', item, class: "btn btn_second" %>
-          </div>
-          <div class="col">
-            <%= link_to 'Modifier', edit_item_path(item), class: "btn btn_second" %>
-          </div>
-          <div class="col">
-            <%= button_to 'Supprimer', item_path(item), method: :delete, class: "btn btn-danger" %>
-          </div>
-        </div>
-      </div>
-      <% end %>
     </div>
   </div>
 </body>
