@@ -10,14 +10,13 @@
 
 .image_product{
     width: 100%;
-    border-radius: 3%;
 }
 
 .container_image_product_show {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 200px;
+    height: 400px;
     overflow: hidden;
     border-radius: 2%;
   }
@@ -26,4 +25,28 @@
     object-fit: cover;
     height: 100%;
     width: 100%;
+  }
+
+  .section_collection{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .inline_container_item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .price_total_item{
+    font-size: 1.8rem;
+    color: var(--primary_color);
+    font-weight: 700;
+  }
+
+  .container_infos_left_item{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
   }
