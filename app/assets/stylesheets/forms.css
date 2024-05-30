@@ -24,12 +24,6 @@
     background-color: #fffcf4;
 }
 
-.container_inline_elements_form{
-    flex-basis: 50%;
-    display: flex;
-    gap: 1rem;
-}
-
 textarea.form-control {
     min-height: 10rem;
 }
@@ -38,9 +32,13 @@ textarea.form-control {
     border: var(--secondary_color);
 }
 
-@media (max-width: 1200px){
-    .container_inline_elements_form {
-        flex-direction: column;
-    }
+.max_width{
+    max-width: fit-content;
+}
 
+.center_form{
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

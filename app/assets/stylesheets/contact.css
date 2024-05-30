@@ -33,6 +33,12 @@
     font-weight: 600;
 }
 
+.container_inline_elements_form{
+    flex-basis: 50%;
+    display: flex;
+    gap: 1rem;
+}
+
 @media (max-width: 1200px){
     .container_contact {
         flex-direction: column;
@@ -40,5 +46,9 @@
 
     .width_form_contact {
         width: 100%;
+    }
+
+    .container_inline_elements_form {
+        flex-direction: column;
     }
 }
