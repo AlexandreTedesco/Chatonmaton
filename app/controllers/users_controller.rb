@@ -30,10 +30,10 @@ class UsersController < ApplicationController
     authorize @user
     if @user.update(user_params)
       redirect_to @user
-      flash[:success] = "Les informations de l'utilisateur ont été mises à jour avec succès."
+      flash[:success] = "Votre profil a bien été modifié"
     else
-      render 'edit'
-      flash[:error] = "Une erreur a été détectée : #{user.errors.full_messages.join(", ")}"
+      redirect_to 'edit'
+      flash[:error] = "Une erreur a été détectée : #{@user.errors.full_messages.join(",")}"
     end
   end
 
