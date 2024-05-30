@@ -121,3 +121,18 @@
     gap: 4rem;
     align-items: center;
 }
+
+@media (max-width: 1000px){
+
+    .container_cart_informations_paiements {
+      flex-direction: column;
+    }
+
+    .container-total{
+        width: 100%;
+  }
+
+  .cart_container{
+    width: 100%;
+  }
+}
