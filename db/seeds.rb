@@ -10,4 +10,3 @@ Order.destroy_all
 
 # Supprimer les enregistrements principaux
 Item.destroy_all
-User.destroy_all

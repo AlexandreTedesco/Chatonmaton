@@ -3,7 +3,9 @@
 class ApplicationController < ActionController::Base
   include ItemsHelper
   include CartsHelper
+  include Pundit
   before_action :configure_permitted_parameters, if: :devise_controller?
+
 
   protected
 
