@@ -57,6 +57,12 @@
   height: fit-content;
 }
 
+.btn_home:hover{
+  width: 200px;
+  height: 70px;
+  text-align: center;
+}
+
 .card_image_home_heart {
   width: 35%;
   height: 350px;

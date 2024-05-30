@@ -15,8 +15,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update(user_params)
       redirect_to @user
+      flash[:success] = "Votre profil a bien été modifié"
     else
-      render 'edit'
+      redirect_to 'edit'
+      flash[:error] = "Une erreur a été détectée : #{@user.errors.full_messages.join(",")}"
     end
   end
 
