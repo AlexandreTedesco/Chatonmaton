@@ -9,10 +9,6 @@ Rails.application.routes.draw do
     resources :cart_items, only: %i[create destroy]
   end
 
-  # Routes pour les utilisateurs avec toutes les actions
-  resources :users
-  devise_for :users
-
   # Routes pour les commandes avec création et affichage
   resources :orders, only: [:new, :create, :show]
 
@@ -31,9 +27,14 @@ Rails.application.routes.draw do
   # Route pour afficher le statut de santé de l'application
   get 'up', to: 'rails/health#show', as: :rails_health_check
 
-  # Route pour afficher le profil de l'utilisateur
-  get '/profile', to: 'users#show'
-
   # Route pour afficher le panier de l'utilisateur
   resources :carts, only: [:show]
+
+  # Routes pour les utilisateurs avec toutes les actions sauf :show
+  resources :users, except: [:show]
+  # Route spécifique pour afficher le profil de l'utilisateur
+  get '/profile', to: 'users#show'
+
+  # Routes pour Devise
+  devise_for :users
 end
