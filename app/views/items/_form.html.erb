@@ -1,36 +1,32 @@
-<%= form_with(model: item, local: true, html: { class: 'needs-validation', novalidate: true }) do |form| %>
-  <% if item.errors.any? %>
-    <div id="error_explanation" class="alert alert-danger">
-      <h2><%= pluralize(item.errors.count, "erreur") %> interdit ce formulaire d'être sauvegardé :</h2>
-      <ul>
-        <% item.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<section>
+  <div class=center_form>
+    <%= form_with(model: item, local: true, html: { class: 'needs-validation', novalidate: true }) do |form| %>
 
-  <div class="mb-3">
-    <%= form.label :title, "Titre", class: 'form-label' %>
-    <%= form.text_field :title, class: 'form-control' %>
-  </div>
+    <div class= "form_inscription container_form max_width">
 
-  <div class="mb-3">
-    <%= form.label :description, "Description", class: 'form-label' %>
-    <%= form.text_area :description, class: 'form-control' %>
-  </div>
+      <div class=container_form_element>
+        <%= form.label :title, "Titre", class: 'label' %>
+        <%= form.text_field :title, class: 'form-control' %>
+      </div>
 
-  <div class="mb-3">
-    <%= form.label :price, "Prix", class: 'form-label' %>
-    <%= form.number_field :price, step: 0.01, class: 'form-control' %>
-  </div>
+      <div class=container_form_element>
+        <%= form.label :description, "Description", class: 'label' %>
+        <%= form.text_area :description, class: 'form-control input description' %>
+      </div>
 
-  <div class="field">
-    <%= form.label :image, "Image", class: 'form-label'%>
-    <%= form.file_field :image, class: 'form-control' %>
-  </div>
+      <div class=container_form_element>
+        <%= form.label :price, "Prix", class: 'label' %>
+        <%= form.number_field :price, step: 0.01, class: 'form-control input' %>
+      </div>
 
-  <div class="actions">
-    <%= form.submit "Submit", class: 'btn btn_primary' %>
+      <div class="field container_form_element">
+        <%= form.label :image, "Image", class: 'label'%>
+        <%= form.file_field :image, class: 'form-control input' %>
+      </div>
+
+      <div class="actions">
+        <%= form.submit "Envoyer", class: 'btn btn_primary' %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</section>

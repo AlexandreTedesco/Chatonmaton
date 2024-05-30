@@ -39,6 +39,8 @@ class CheckoutController < ApplicationController
       cart_id: @cart_id,
       stripe_session_id: @session.id
     )
+
+    redirect_to root_path, flash: { success: "Votre commande a été traitée avec succès." }
   end
 
   def cancel
@@ -48,3 +50,4 @@ class CheckoutController < ApplicationController
     redirect_to root_path
   end
 end
+
