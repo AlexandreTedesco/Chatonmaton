@@ -1,21 +1,28 @@
-<div class="d-flex justify-content-center">
-  <div class="card mb-4">
-    <% if @item.image.attached? %>
-      <div class=container_image_product_show><%= image_tag @item.image, alt: 'image', class: "image_product_show" %></div>
-    <% end %>
-    <div class="card-body">
-      <h2 class="card-title"><%= @item.title %></h2>
-      <p class="card-text"><%= @item.description %></p>
-      <p class="card-text"><small class="text-body-secondary"><%= number_to_currency(@item.price) %></small></p>
+<div class="container mt-4">
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-8 col-lg-6">
+      <div class="card mb-4 border-0">
+        <% if @item.image.attached? %>
+          <div class="container_image_product_show">
+            <%= link_to @item do %>
+              <%= image_tag @item.image, alt: 'image', class: "image_product_show img-fluid" %>
+            <% end %>
+          </div>
+        <% end %>
+        <div class="card-body">
+          <h2 class="card-title"><%= @item.title %></h2>
+          <p class="card-text"><%= @item.description %></p>
+          <p class="card-text"><small class="text-body-secondary"><%= number_to_currency(@item.price, unit: "€") %></small></p>
+        </div>
+        <% if user_signed_in? %>
+          <%= button_to "Ajouter au panier", item_cart_items_path(@item.id), method: :post, class: "btn btn_primary btn-block" %>
+        <% end %>
+      </div>
     </div>
-    <%if user_signed_in?%>
-      <%= button_to "Ajouter au panier", item_cart_items_path(@item.id), method: :post, class:"btn btn_primary" %>
-    <%end%>
   </div>
 </div>
-<p>
-  <%= link_to 'Retour à la liste', items_path %>            
-  <%= link_to 'Modifier', edit_item_path(@item) %>
-  <%= button_to 'Supprimer', "/items/#{@item.id}", method: :delete, class:"btn btn_primary"%>
-</p>           
-         
+  <div class="col-md-6 col-lg-4 d-flex justify-content-between">
+    <%= link_to 'Retour à la liste', items_path %>            
+    <%= link_to 'Modifier', edit_item_path(@item) %>
+    <%= button_to 'Supprimer', "/items/#{@item.id}", method: :delete, class:"btn btn_primary"%>
+  </div>           
