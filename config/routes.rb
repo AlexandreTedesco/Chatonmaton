@@ -18,6 +18,10 @@ Rails.application.routes.draw do
     get 'cancel', to: 'checkout#cancel', as: 'checkout_cancel'
   end
 
+  namespace :admin do
+    get 'dashboard', to: 'dashboard#index'
+  end
+
   # Définition des routes d'application selon le DSL de Rails
 
   # Afficher le statut de santé sur /up qui retourne 200 si l'application démarre sans exceptions, sinon 500.

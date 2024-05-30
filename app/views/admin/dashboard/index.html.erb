@@ -1,0 +1,52 @@
+<div class="row">
+  <!-- Colonne Utilisateurs -->
+  <div class="col">
+    <h2>Utilisateurs</h2>
+    <ol class="list-group list-group-numbered">
+      <% @users.each do |user| %>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Utilisateur</div>
+            Email: <%= user.email %><br>
+            Prénom: <%= user.first_name %><br>
+            Nom: <%= user.last_name %><br>
+            Description: <%= user.description %><br>
+            Admin: <%= user.admin ? 'Oui' : 'Non' %>
+          </div>
+        </li>
+      <% end %>
+    </ol>
+  </div>
+
+  <!-- Colonne Articles -->
+  <div class="col">
+    <h2>Articles</h2>
+    <ol class="list-group list-group-numbered">
+      <% @items.each do |item| %>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Article</div>
+            Titre: <%= item.title %><br>
+            Description: <%= item.description %><br>
+            Prix: <%= item.price %>
+          </div>
+        </li>
+      <% end %>
+    </ol>
+  </div>
+
+  <!-- Colonne Commandes -->
+  <div class="col">
+    <h2>Commandes</h2>
+    <ol class="list-group list-group-numbered">
+      <% @orders.each do |order| %>
+        <li class="list-group-item d-flex justify-content-between align-items-start">
+          <div class="ms-2 me-auto">
+            <div class="fw-bold">Commande</div>
+            ID de la commande: <%= order.id %>
+          </div>
+        </li>
+      <% end %>
+    </ol>
+  </div>
+</div>

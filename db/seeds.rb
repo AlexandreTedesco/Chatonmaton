@@ -52,7 +52,7 @@ end
   )
 end
 
-   User.create!(
+  admin = User.create!(
   email: 'admin@gmail.com',
   password: 'admin123',
   first_name: 'Admin',

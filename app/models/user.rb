@@ -14,6 +14,10 @@ class User < ApplicationRecord
     Cart.create(user: self)
   end
 
+  def admin?
+    admin
+  end
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
