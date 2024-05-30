@@ -14,11 +14,10 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     if @item.save
-      redirect_to @item
       flash[:success] = "L'article a été créé avec succès."
     else
-      render :new
-      flash[:error] = "Une erreur a été détectée : #{item.errors.full_messages.join(",")}" # Utilisez item.errors au lieu de @item
+      redirect_to new_item_path
+      flash[:error] = "Une erreur a été détectée : #{@item.errors.full_messages.join(",")}"
     end
   end
 
@@ -27,8 +26,8 @@ class ItemsController < ApplicationController
       redirect_to @item
       flash[:success] = "L'article a été modifié avec succès."
     else
-      render :edit
-      flash[:error] = "Une erreur a été détectée : #{item.errors.full_messages.join(",")}" # Utilisez item.errors au lieu de @item
+      redirect_to :edit
+      flash[:error] = "Une erreur a été détectée : #{@item.errors.full_messages.join(",")}"
     end
   end
 
