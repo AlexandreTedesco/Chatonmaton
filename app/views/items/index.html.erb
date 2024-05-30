@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Collections</title>
-</head>
-<body>
-  <h1>Liste des Articles</h1>
+<h1>Liste des Articles</h1>
+<br>
+<section class="collection">
     <div class="container">
       <div class="row">
         <% @items.each do |item| %>
@@ -27,19 +23,7 @@
               <%= button_to "Ajouter au panier", item_cart_items_path(item.id), method: :post, class: "btn btn_primary" %>
             <% end %>
             <br>
-            <div class="row">
-              <div class="col">
-                <%= link_to 'Voir', item, class: "btn btn_second" %>
-              </div>
-              <div class="col">
-                <%= link_to 'Modifier', edit_item_path(item), class: "btn btn_second" %>
-              </div>
-              <div class="col">
-                <%= button_to 'Supprimer', item_path(item), method: :delete, class: "btn btn-danger" %>
-              </div>
-            </div>
           </div>
         <% end %>
     </div>
-</body>
-</html>
+</section>
