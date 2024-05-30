@@ -10,7 +10,11 @@
         <% @items.each do |item| %>
         <div class="col-6 mb-3 p-2">
           <% if item.image.attached? %>
-            <div class=container_image_product><%= image_tag item.image, alt: 'image', class: "image_product" %></div>
+            <div class=container_image_product>
+              <%= link_to item do %>
+                <%= image_tag item.image, alt: 'image', class: "image_product" %>
+              <% end %>
+            </div>
           <% end %>
             <h2><%= item.title %></h2>
           <p><%= item.description %></p>
@@ -19,17 +23,6 @@
             <%= button_to "Ajouter au panier", item_cart_items_path(item.id), method: :post, class:"btn btn_primary" %>
           <%end%>
           <br>
-          <div class="row">
-            <div class="col">
-              <%= link_to 'Voir', item, class: "btn btn_second" %>
-            </div>
-            <div class="col">
-              <%= link_to 'Modifier', edit_item_path(item), class: "btn btn_second" %>
-            </div>
-            <div class="col">
-              <%= button_to 'Supprimer', "/items/#{item.id}", method: :delete, class: "btn btn-danger" %></p>
-            </div>
-          </div>
         </div>
         <% end %>
       </div>
