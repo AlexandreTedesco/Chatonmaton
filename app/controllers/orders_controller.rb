@@ -3,7 +3,6 @@
 class OrdersController < ApplicationController
 
   def create
-    authorize @order
     @stripe_amount = 500
     begin
       customer = Stripe::Customer.create({
