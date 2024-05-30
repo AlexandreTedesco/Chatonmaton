@@ -2,6 +2,7 @@
 
 class User < ApplicationRecord
   after_create :welcome_send
+  has_one_attached :profile_picture
   has_one :cart
   has_many :orders
 
@@ -11,6 +12,10 @@ class User < ApplicationRecord
 
   def create_cart
     Cart.create(user: self)
+  end
+
+  def admin?
+    admin
   end
 
   # Include default devise modules. Others available are:
