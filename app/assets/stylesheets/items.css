@@ -26,3 +26,27 @@
     height: 100%;
     width: 100%;
   }
+
+  .section_collection{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .inline_container_item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .price_total_item{
+    font-size: 1.8rem;
+    color: var(--primary_color);
+    font-weight: 700;
+  }
+
+  .container_infos_left_item{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
