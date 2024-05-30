@@ -5,17 +5,14 @@ class ItemsController < ApplicationController
 
   def index
     @items = Item.all
-    authorize Item
   end
 
   def new
     @item = Item.new
-    authorize @item # Utilisez @item au lieu de @Item
   end
 
   def create
     @item = Item.new(item_params)
-    authorize @item
     if @item.save
       redirect_to @item
       flash[:success] = "L'article a été créé avec succès."
@@ -26,7 +23,6 @@ class ItemsController < ApplicationController
   end
 
   def update
-    authorize @item
     if @item.update(item_params)
       redirect_to @item
       flash[:success] = "L'article a été modifié avec succès."
@@ -37,7 +33,6 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    authorize @item
     @item.destroy
     redirect_to items_url
     flash[:success] = "L'article a été supprimé avec succès."

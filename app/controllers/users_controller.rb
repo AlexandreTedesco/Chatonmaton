@@ -5,7 +5,6 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    authorize @user
     if @user.save
       redirect_to @user
       flash[:success] = "L'utilisateur a été créé avec succès."
@@ -17,17 +16,14 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    authorize @user
   end
 
   def edit
     @user = User.find(params[:id])
-    authorize @user
   end
 
   def update
     @user = User.find(params[:id])
-    authorize @user
     if @user.update(user_params)
       redirect_to @user
       flash[:success] = "Votre profil a bien été modifié"
@@ -39,7 +35,6 @@ class UsersController < ApplicationController
 
   def destroy
     @user = User.find(params[:id])
-    authorize @user
     @user.destroy
     redirect_to root_path
     flash[:success] = "L'utilisateur a été supprimé avec succès."
