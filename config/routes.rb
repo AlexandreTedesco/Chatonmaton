@@ -1,30 +1,39 @@
-# frozen_string_literal: true
-
 Rails.application.routes.draw do
+  # Routes pour les pages statiques
   get 'static_pages/accueil'
   get 'static_pages/contact'
   root 'static_pages#accueil'
+
+  # Routes pour les articles avec gestion des cart_items
   resources :items do
     resources :cart_items, only: %i[create destroy]
   end
+
+  # Routes pour les utilisateurs avec toutes les actions
+  resources :users
   devise_for :users
-  resources :users, only: [:show, :new, :create, :edit, :update]
 
-  resources :orders, only: [:new, :create]
+  # Routes pour les commandes avec création et affichage
+  resources :orders, only: [:new, :create, :show]
 
-  # routes pour stripe
-
+  # Routes pour les paiements avec Stripe
   scope '/checkout' do
     post 'create', to: 'checkout#create', as: 'checkout_create'
     get 'success', to: 'checkout#success', as: 'checkout_success'
     get 'cancel', to: 'checkout#cancel', as: 'checkout_cancel'
   end
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
-  get 'up' => 'rails/health#show', as: :rails_health_check
+  # Routes pour l'administration avec le dashboard
+  namespace :admin do
+    get 'dashboard', to: 'dashboard#index'
+  end
+
+  # Route pour afficher le statut de santé de l'application
+  get 'up', to: 'rails/health#show', as: :rails_health_check
+
+  # Route pour afficher le profil de l'utilisateur
   get '/profile', to: 'users#show'
+
+  # Route pour afficher le panier de l'utilisateur
   resources :carts, only: [:show]
 end
