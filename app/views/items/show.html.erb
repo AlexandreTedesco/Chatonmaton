@@ -13,4 +13,9 @@
     <%end%>
   </div>
 </div>
-<%= link_to 'Retour à la liste', items_path %>
+<p>
+  <%= link_to 'Retour à la liste', items_path %>            
+  <%= link_to 'Modifier', edit_item_path(@item) %>
+  <%= button_to 'Supprimer', "/items/#{@item.id}", method: :delete, class:"btn btn_primary"%>
+</p>           
+         
