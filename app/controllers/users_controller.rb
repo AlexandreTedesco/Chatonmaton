@@ -28,7 +28,7 @@ class UsersController < ApplicationController
       redirect_to @user
       flash[:success] = "Votre profil a bien été modifié"
     else
-      redirect_to 'edit'
+      redirect_to edit_user_path(@user)
       flash[:error] = "Une erreur a été détectée : #{@user.errors.full_messages.join(",")}"
     end
   end

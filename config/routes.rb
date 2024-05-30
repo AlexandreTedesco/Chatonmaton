@@ -30,11 +30,11 @@ Rails.application.routes.draw do
   # Route pour afficher le panier de l'utilisateur
   resources :carts, only: [:show]
 
-  # Routes pour les utilisateurs avec toutes les actions sauf :show
-  resources :users, except: [:show]
-  # Route spécifique pour afficher le profil de l'utilisateur
-  get '/profile', to: 'users#show'
-
   # Routes pour Devise
   devise_for :users
+
+  # Vous n'avez pas besoin de cette route spécifique pour afficher le profil de l'utilisateur
+  get '/profile', to: 'users#show'
+
+  # Vous pouvez laisser Devise gérer l'affichage des profils
 end
