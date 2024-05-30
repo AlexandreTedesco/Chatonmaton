@@ -4,7 +4,6 @@ module CartsHelper
     def create_or_retrieve_cart_current_user
       cart = Cart.find_by(user: current_user)
       return cart if cart
-
       Cart.create(user: current_user)
     end
 

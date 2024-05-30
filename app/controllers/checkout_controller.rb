@@ -34,11 +34,15 @@ class CheckoutController < ApplicationController
     @cart_id = @session.metadata.cart_id
 
     # Enregistrer la commande dans la base de données
-    Order.create(
+    order = Order.create(
       user_id: current_user.id,
       cart_id: @cart_id,
       stripe_session_id: @session.id
     )
+    
+    if order
+      current_user.cart.destroy
+    end
 
     redirect_to root_path, flash: { success: "Votre commande a été traitée avec succès." }
   end
@@ -50,4 +54,3 @@ class CheckoutController < ApplicationController
     redirect_to root_path
   end
 end
-

@@ -17,11 +17,15 @@ class OrdersController < ApplicationController
       })
 
       # Enregistrer la commande dans la base de données après le paiement réussi
-      Order.create(
-        user_id: current_user.id,
-        cart_id: SecureRandom.uuid, # Générer un identifiant unique pour la commande
-        stripe_session_id: charge.id
+      order = Order.create(
+      user_id: current_user.id,
+      cart_id: @cart_id,
+      stripe_session_id: @session.id
       )
+
+      if order
+        current_user.cart.destroy
+      end
 
     rescue Stripe::CardError => e
       flash[:error] = e.message
