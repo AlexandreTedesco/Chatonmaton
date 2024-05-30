@@ -1,17 +1,19 @@
 footer{
-    background-color: var(--transparency_color);
-    width: 100%;
+  width: 100%;
 }
 
 .container_footer{
+    background-color: var(--transparency_color);
+    width: 100%;
     padding: 1rem 4rem;
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    margin-top: 4rem;
 }
 
 .icone_background_rs_footer{
-    background-color: var(--primary_color);
+  background-color: var(--primary_color);
   border: none;
   padding: 0.5rem 0.5rem 0.5rem;
   border-radius: 999px;

@@ -15,6 +15,10 @@
                 <%= image_tag item.image, alt: 'image', class: "image_product" %>
               <% end %>
             </div>
+            <% elsif item.image_url.present? %>
+          <div class="container_image_product">
+            <%= image_tag item.image_url, alt: 'image', class: "image_product" %>
+          </div>
           <% end %>
             <h2><%= item.title %></h2>
           <p><%= item.description %></p>
@@ -28,3 +32,4 @@
       </div>
     </div>
 </body>
+</html>
