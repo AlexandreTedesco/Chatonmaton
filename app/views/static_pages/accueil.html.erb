@@ -1,0 +1,100 @@
+  <!-- Jumbotron -->
+  <div class=background_yellow>
+  </div>
+  <div class="hero_section">
+    <div class="container text-white">
+      <p class="lead">Découvrez nos adorables <span class=span_accueil>photos de chats !<span></p>
+    </div>
+    <a href="/items" class="btn_home">Parcourir</a>
+  </div>
+
+  <!-- Vos Coups de Coeur -->
+    <div class="container_cards_heart">
+      <div class=title_h>
+        <h1>Nos coups de
+        <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="currentColor" class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
+        <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1"/>
+        </svg>
+      </h1>
+        <div class=underlining_title>
+        </div>
+    </div>
+      
+      <div class="card_container_inline_heart">
+          <div class="card_image_home_heart">
+            <img class="image_product_home" src="<%= asset_path('chaton1.jpg') %>" alt="Photo de chat 1">
+          </div>
+          <div class="card_image_home_heart">
+            <img class="image_product_home" src="<%= asset_path('chaton2.jpg') %>" alt="Photo de chat 2">
+          </div>
+      </div>
+      <div class="card_container_inline_heart">
+          <div class="card_image_home_heart">
+            <img class="image_product_home" src="<%= asset_path('chaton3.jpg') %>" alt="Photo de chat 3">
+          </div>
+          <div class="card_image_home_heart">
+            <img class="image_product_home" src="<%= asset_path('chaton2.jpg') %>" alt="Photo de chat 2">
+          </div>
+      </div>
+    </div>
+
+  <!-- Votez pour la photo du mois -->
+  <div class="container flex-column align-items-center margin_top_month gap">
+    <div class="title_h">
+        <h1>Votez pour la photo du mois</h1>
+        <div class=underlining_title>
+        </div>
+    </div>
+    <div id="carouselExampleIndicators" class="margin_top_carrousel_home carousel width_carrousel_home slide flex justify-content-center" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner rounded">
+        <div class="carousel-item active">
+          <div class=heart_carrousel>
+            <a href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
+              <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1"/>
+              </svg>
+            </a>
+          </div>
+          <img class="d-block w-100" src="<%= asset_path('chaton4.jpg') %>" alt="First slide">
+        </div>
+        <div class="carousel-item">
+          <div class=heart_carrousel>
+            <a href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
+              <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1"/>
+              </svg>
+            </a>
+          </div>
+          <img class="d-block w-100" src="<%= asset_path('chaton5.jpg') %>" alt="Second slide">
+        </div>
+        <div class="carousel-item">
+          <div class=heart_carrousel>
+            <a href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-suit-heart-fill" viewBox="0 0 16 16">
+              <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1"/>
+              </svg>
+            </a>
+          </div>
+          <img class="d-block w-100" src="<%= asset_path('chaton6.jpg') %>" alt="Third slide">
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <div class=arrow_carrousel><span class="carousel-control-prev-icon" aria-hidden="true"></span></div>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <div class=arrow_carrousel><span class="carousel-control-next-icon" aria-hidden="true"></span></div>
+      </a>
+    </div>
+  </div>
+
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

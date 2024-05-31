@@ -1,0 +1,36 @@
+<section>
+  <div class="center_form">
+    <%= form_for @user, html: { multipart: true, class: 'needs-validation', novalidate: true } do |f| %>
+      <div class="form_inscription container_form max_width">
+        <div class="container_form_element">
+          <%= f.label :first_name, "Prénom", class: 'label' %>
+          <%= f.text_field :first_name, class: 'form-control input' %>
+        </div>
+
+        <div class="container_form_element">
+          <%= f.label :last_name, "Nom", class: 'label' %>
+          <%= f.text_field :last_name, class: 'form-control input' %>
+        </div>
+
+        <div class="container_form_element">
+          <%= f.label :email, "Email", class: 'label' %>
+          <%= f.email_field :email, class: 'form-control input' %>
+        </div>
+
+        <div class="container_form_element">
+          <%= f.label :description, "Description", class: 'label' %>
+          <%= f.text_area :description, class: 'form-control input' %>
+        </div>
+
+        <div class="container_form_element">
+          <%= f.label :profile_picture, "Photo de profil", class: 'label' %>
+          <%= f.file_field :profile_picture, class: 'form-control input' %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "Enregistrer les modifications", class: 'btn btn_primary' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</section>

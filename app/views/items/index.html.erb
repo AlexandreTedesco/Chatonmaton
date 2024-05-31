@@ -1,20 +1,34 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Collections</title>
-</head>
-<body>
-  <h1>Liste des Articles</h1>
+<div class="title_h">
+        <h1>Les photos</h1>
+        <div class=underlining_title>
+        </div>
+    </div>
+<br>
+<section class="collection">
+    <div class="container">
+      <div class="row">
         <% @items.each do |item| %>
-          <p><%= item.title %></p>
-          <p><%= item.description %></p>
-          <p><%= number_to_currency(item.price) %></p>
-          <p><%= image_tag(item.image_url) if item.image_url.present? %></p>
-          <br>
-          <%= link_to 'Voir', item %>
-          <%= link_to 'Modifier', edit_item_path(item) %>
-          <%= link_to 'Supprimer', items_path(item), data: {turbo_method: :delete} %>
-          <br>
-          <%= link_to "Ajouter au panier", item_cart_items_path(item.id), data: {turbo_method: :post}, class:"btn btn_primary" %>
+          <div class="col-sm-6 col-md-4 col-lg-3 mb-3 p-3 section_collection">
+              <% if item.image.attached? %>
+                <div class="container_image_product">
+                  <%= link_to item do %>
+                    <%= image_tag item.image, alt: 'image', class: "image_product img-fluid" %>
+                  <%end%>
+                </div>
+              <% end %>
+            <div class=gap_container_info_item>
+              <div class=container_infos_left_item>
+                <h2><%= item.title %></h2>
+                <p><%= item.description %></p>
+              </div>
+              <div>
+                <p class="price_total_item"><%= item.price %> €</p>
+              </div>
+            </div>
+            <% if user_signed_in? %>
+                  <%= button_to "Ajouter au panier", item_cart_items_path(item.id), method: :post, class: "btn btn_primary" %>
+                <% end %>
+          </div>
         <% end %>
-</body>
+    </div>
+</section>
